@@ -76,4 +76,8 @@ modifier onlyOwner() {
 function completeHalfAnswerOfLife() public onlyOwner {
     halfAnswerOfLife = halfAnswerOfLife + 21;
 }
+
+function hashMyMessage(string calldata _message) public pure returns (bytes32) {
+    return keccak256(abi.encodePacked(_message));
+}
 }
