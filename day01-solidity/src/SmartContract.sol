@@ -35,4 +35,21 @@ Information public myInformations = Information({
     city: "Paris",
     role : roleEnum.STUDENT
 });
+
+//function
+function getHalfAnswerOfLife() public view returns (uint256) {
+    return halfAnswerOfLife;
+}
+
+function _getMyEthereumContractAddress() internal view returns (address) {
+    return myEthereumAddress;
+}
+
+function getPoCIsWhat() external view returns (string memory) {
+    return poCIsWhat;
+}
+
+function _setAreYouABadPerson(bool _value) internal {
+    _areYouABadPerson = _value;
+}
 }
