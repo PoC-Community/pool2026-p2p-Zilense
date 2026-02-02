@@ -52,4 +52,16 @@ function getPoCIsWhat() external view returns (string memory) {
 function _setAreYouABadPerson(bool _value) internal {
     _areYouABadPerson = _value;
 }
+
+function editMyCity(string calldata _newCity) public {
+    myInformations.city = _newCity;
+}
+
+function getMyFullName() public view returns (string memory) {
+    // TODO: Concatenate firstName + " " + lastName
+    // Hint: Use abi.encodePacked() to concatenate strings
+    // return string(abi.encodePacked(str1, " ", str2));
+    return string(abi.encodePacked(myInformations.firstname,"",myInformations.lastName));
+}
+
 }
