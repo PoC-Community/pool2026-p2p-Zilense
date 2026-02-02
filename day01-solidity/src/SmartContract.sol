@@ -58,10 +58,22 @@ function editMyCity(string calldata _newCity) public {
 }
 
 function getMyFullName() public view returns (string memory) {
-    // TODO: Concatenate firstName + " " + lastName
-    // Hint: Use abi.encodePacked() to concatenate strings
-    // return string(abi.encodePacked(str1, " ", str2));
     return string(abi.encodePacked(myInformations.firstname,"",myInformations.lastName));
 }
 
+//private adress
+address private owner;
+
+constructor() {
+    owner = msg.sender;  
+}
+
+modifier onlyOwner() {
+    require(msg.sender == owner, "Not the owner");
+    _; 
+}
+
+function completeHalfAnswerOfLife() public onlyOwner {
+    halfAnswerOfLife = halfAnswerOfLife + 21;
+}
 }
