@@ -94,11 +94,18 @@ function addToBalance() public payable {
 
 }
 
+error InsufficientBalance(uint256 available, uint256 requested);
+
 function withdrawFromBalance(uint256 _amount) public {
-    require(balances[msg.sender] >= _amount,"amout");
+
+    if (balances[msg.sender] < _amount) {
+    revert InsufficientBalance(balances[msg.sender], _amount);
+}
+
     balances[msg.sender] -= _amount;
     (bool success, ) = msg.sender.call{value: _amount}("");
     require(success,"SUCCES");
+    
 }
 
 event BalanceUpdated(address indexed user, uint256 newBalance);
