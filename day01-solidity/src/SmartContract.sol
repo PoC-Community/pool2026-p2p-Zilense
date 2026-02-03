@@ -80,4 +80,22 @@ function completeHalfAnswerOfLife() public onlyOwner {
 function hashMyMessage(string calldata _message) public pure returns (bytes32) {
     return keccak256(abi.encodePacked(_message));
 }
+
+//ETH MANAGEMENT
+mapping(address => uint256) public balances;
+
+function getMyBalance() public view returns (uint256) {
+    return balances[msg.sender];
+}
+
+function addToBalance() public payable {
+    balances[msg.sender] = balances[msg.sender] + msg.value;
+}
+
+function withdrawFromBalance(uint256 _amount) public {
+    require(balances[msg.sender] >= _amount,"amout");
+    balances[msg.sender] -= _amount;
+    (bool success, ) = msg.sender.call{value: _amount}("");
+    require(success,"SUCCES");
+}
 }
