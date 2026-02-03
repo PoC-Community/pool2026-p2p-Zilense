@@ -90,6 +90,8 @@ function getMyBalance() public view returns (uint256) {
 
 function addToBalance() public payable {
     balances[msg.sender] = balances[msg.sender] + msg.value;
+    emit BalanceUpdated(msg.sender, balances[msg.sender]);
+
 }
 
 function withdrawFromBalance(uint256 _amount) public {
@@ -98,4 +100,7 @@ function withdrawFromBalance(uint256 _amount) public {
     (bool success, ) = msg.sender.call{value: _amount}("");
     require(success,"SUCCES");
 }
+
+event BalanceUpdated(address indexed user, uint256 newBalance);
+
 }
