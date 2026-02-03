@@ -27,5 +27,23 @@ struct User {
 // Mapping to store per-address data
 mapping(address => User) public profiles;
 
+function createProfile(string calldata _name) external {
+    if (bytes(_name).length == 0) {
+    revert EmptyUsername();
+    }
+
+        if (profiles[msg.sender].level != 0){
+        revert UserAlreadyExists();
+    }
+
+    uint256 currentTime = block.timestamp;
+
+    profiles[msg.sender]= User({
+        username: _name,
+        level: 1,
+        role: RoleEnum.USER,
+        lastUpdated: currentTime
+    });
+}
 
 }
