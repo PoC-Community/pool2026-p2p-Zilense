@@ -46,4 +46,10 @@ function createProfile(string calldata _name) external {
     });
 }
 
+function levelUp() external onlyRegistered {
+    profiles[msg.sender].level++;
+    profiles[msg.sender].lastUpdated = block.timestamp;
+}
+
+
 }
