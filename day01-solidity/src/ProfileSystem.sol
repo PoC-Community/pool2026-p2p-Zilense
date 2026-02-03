@@ -7,6 +7,13 @@ error UserAlreadyExists();
 error EmptyUsername();
 error UserNotRegistered();
 
+modifier onlyRegistered() {
+    if (profiles[msg.sender].level == 0) {
+        revert UserNotRegistered();
+    }
+    _;
+}
+
 // Struct to group related data
 enum RoleEnum { GUEST, USER, ADMIN }
 
