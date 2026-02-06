@@ -1,0 +1,6 @@
+{
+  "name": "SCREEN",
+  "description": "My first NFT",
+  "image": "ipfs://bafybeiggwl6xeiihujz246wuzanhhpaanr2w5xr6cwiaq6nyxv7jg63ine/",
+  "attributes": [{ "trait_type": "Rarity", "value": "Legendary" }]
+}

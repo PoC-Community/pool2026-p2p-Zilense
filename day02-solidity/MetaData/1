@@ -1,0 +1,6 @@
+{
+  "name": "TungTungSahur",
+  "description": "My first NFT",
+  "image": "ipfs://bafybeibgopzdmprfmlrwaoin7o3qoxarjoawei3vp6lqdvklkz4kwghmom/",
+  "attributes": [{ "trait_type": "Rarity", "value": "Common" }]
+}

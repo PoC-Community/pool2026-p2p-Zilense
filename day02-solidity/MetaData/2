@@ -1,0 +1,6 @@
+{
+  "name": "PlateToDo",
+  "description": "My first NFT",
+  "image": "ipfs://bafybeigro6m4fgerbpzz24yp52i5jgv623dyrxebqy6b2q6kwyx5upsf2q/",
+  "attributes": [{ "trait_type": "Rarity", "value": "Uncommun" }]
+}
